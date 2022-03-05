@@ -1,3 +1,4 @@
+using GitCommits.FakeDb;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +14,12 @@ namespace GitCommits
     {
         public static void Main(string[] args)
         {
+            AppDbContext.DataOfLists.Add(new Models.DataOfList()
+            {
+                Title = "Title 1",
+                Cotnent = "Content 1"
+            });
+
             CreateHostBuilder(args).Build().Run();
         }
 

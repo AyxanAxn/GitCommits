@@ -6,17 +6,8 @@ using System.Threading.Tasks;
 
 namespace GitCommits.FakeDb
 {
-    public class AppDbContext
+    public static class AppDbContext
     {
-        public static List<DataOfList> DataOfLists { get; set; }
-
-        public AppDbContext()
-        {
-            DataOfLists.Add(new DataOfList()
-            {
-                Title = "Salam",
-                Cotnent = "Hi"
-            });
-        }
+        public static List<DataOfList> DataOfLists { get; set; } = new List<DataOfList>();
     }
 }

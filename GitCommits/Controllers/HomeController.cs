@@ -1,4 +1,5 @@
-﻿using GitCommits.Models;
+﻿using GitCommits.FakeDb;
+using GitCommits.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -21,7 +22,37 @@ namespace GitCommits.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            HomeIndexViewModel model = new()
+            {
+                DataList = AppDbContext.DataOfLists
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Add(DataOfList data)
+        {
+            DAL.AddDataService.AddData(data.Title, data.Cotnent);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int deleteId)
+        {
+            DAL.RemoveDataServices.RemoveData(deleteId);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Update(int updateId)
+        {
+            return View(new DataOfList());
+        }
+
+        [HttpPost]
+        public IActionResult Update(DataOfList model)
+        {
+            DAL.UpdateDataService.UpdateData(model);
+            return RedirectToAction("Index");
         }
 
         public IActionResult Privacy()

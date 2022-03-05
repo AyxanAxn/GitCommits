@@ -9,14 +9,13 @@ namespace GitCommits.DAL
 {
     public class UpdateDataService
     {
-        public void updateData(DataOfList data)
+        public static void UpdateData(DataOfList data)
         {
-
-            var datas = AppDbContext.dataOfList.FirstOrDefault(d => d.Id == data.Id);
+            var datas = AppDbContext.DataOfLists.FirstOrDefault(d => d.Id == data.Id);
             if (datas != null)
             {
-                data.Title = datas.Title;
-                data.Cotnent = datas.Cotnent;
+                datas.Title = data.Title;
+                datas.Cotnent = data.Cotnent;
             }
         }
     }

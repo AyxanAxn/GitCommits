@@ -8,8 +8,15 @@ namespace GitCommits.FakeDb
 {
     public class AppDbContext
     {
-        public static List<DataOfList> dataOfList = new List<DataOfList>() {
-        new DataOfList{ Cotnent="Salam canim",Title="Saba cixiram",Id=1},
-        };
+        public static List<DataOfList> DataOfLists { get; set; }
+
+        public AppDbContext()
+        {
+            DataOfLists.Add(new DataOfList()
+            {
+                Title = "Salam",
+                Cotnent = "Hi"
+            });
+        }
     }
 }

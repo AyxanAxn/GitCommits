@@ -9,7 +9,7 @@ namespace GitCommits.FakeDb
     public class AppDbContext
     {
         public static List<DataOfList> dataOfList = new List<DataOfList>() {
-        new DataOfList{ Cotnent="Salam canim",Title="Saba cixiram"},
+        new DataOfList{ Cotnent="Salam canim",Title="Saba cixiram",Id=1},
         };
     }
 }

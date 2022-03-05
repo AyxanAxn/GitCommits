@@ -21,6 +21,7 @@ namespace GitCommits.Controllers
 
         public IActionResult Index()
         {
+            Console.WriteLine("Hello World");
             return View();
         }
 
